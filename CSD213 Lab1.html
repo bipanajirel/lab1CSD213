@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <style>
+    .table {
+      color: darkslategray;
+
+
+    }
+  </style>
+  <table id="sampleTable" class="table" border="1">
+    <tr>
+      <td>Row1 Col1</td>
+      <td>Row1 Col2</td>
+    </tr>
+    <tr>
+      <td>Row2 Col1</td>
+      <td>Row2 Col2</td>
+    </tr>
+    <tr>
+      <td>Row3 Col1</td>
+      <td>Row3 Col2</td>
+    </tr>
+    <tr>
+      <td>Row4 Col1</td>
+      <td>Row4 Col2</td>
+    </tr>
+    <tr>
+      <td>Row5 Col1</td>
+      <td>Row5 Col2</td>
+    </tr>
+  </table><br>
+  <input type="button" style="color:green;" onclick="insertRowBottom()" value="Insert row">
+  <input type="button" style="color:brown;" onclick="deleteRowTop()" value="delete row">
+  <p id="message"></p>
+
+
+
+  </br>
+  <script>
+
+    function insertRowBottom() {
+      sample_table = document.getElementById("sampleTable");
+      addRow = sample_table.insertRow();
+      cell1 = addRow.insertCell(0);
+      cell2 = addRow.insertCell(0);
+      addRow = addRow.rowIndex + 1;
+      cell1.innerHTML = "Row" + addRow + " Col2 "
+      cell2.innerHTML = "Row" + addRow + "Col1"
+
+
+    }
+
+    function deleteRowTop() {
+      sample_table = document.getElementById("sampleTable");
+      sample_table.deleteRow(0);
+
+      if (sample_table.rows.length > 0) {
+        sample_table.deleteRow(sample_table.rows.length);
+      } else {
+        message = document.getElementById("message").innerHTML = "Message: No more rows to delete";
+        message.style.display = document.getElementById("sampleTable").rows.length == 0
+      }
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>
